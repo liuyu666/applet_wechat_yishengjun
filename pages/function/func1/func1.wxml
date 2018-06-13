@@ -1,0 +1,2 @@
+<!--pages/function/func1/func1.wxml-->
+<text>{{content}}</text>

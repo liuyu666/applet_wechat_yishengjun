@@ -1,0 +1,27 @@
+<!--pages/index/english/english.wxml-->
+
+<form bindsubmit="reg">
+<block wx:for="{{dataList}}" wx:key="key">
+
+  <view>{{item.word}}<radio-group name="{{item.id}}">
+    <label><radio value="A"/>A.{{item.a}}</label>
+    <label><radio value="B"/>B.{{item.b}}</label>
+    <label><radio value="C"/>C.{{item.c}}</label>
+    <label><radio value="D"/>D.{{item.d}}</label>
+  </radio-group></view>
+
+</block>
+<view><button type="primary" form-type="submit" disabled='{{disabled}}'>确认答案</button></view>
+
+ </form>
+ <!--题目列表 -->
+
+<view>
+  <block wx:for="{{dataList}}" wx:key="key">
+    <view class='{{yes}}'>正确答案：{{answer}}</view>
+    <view class='{{num}}'>你的答案：{{you}}</view>
+  </block>
+</view><!--做统一是否正确-->
+
+<button class="{{next}}" bindtap='next' >下一题</button>
+

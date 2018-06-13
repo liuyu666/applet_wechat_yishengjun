@@ -1,0 +1,19 @@
+<!--pages/function/func2/func2.wxml-->
+ <block wx:for='{{data}}' wx:key='key'> 
+<view class='box'>
+<!-- 商品图 -->
+  <image class='pic_goods' src='{{item.goods}}'/>
+  <view class='price_box'>
+  <!-- 售价 -->
+    <view class='price'>￥{{item.price}}</view>
+    <!-- 购买数量 -->
+    <view class='num_box'>
+      <view class='left'>{{item.left}}</view><view class='num'>{{item.num}}</view><view class='right'>{{item.right}}</view>
+    </view>
+  </view>
+  <!-- 填写地址 -->
+  <view class='add'>{{item.adresss}}<image class='add_right' src='{{item.add_right}}'/></view>
+  <!-- 支付 -->
+  <button size='mini' type='primary' class='button'>{{item.pay}}</button>
+</view>
+ </block> 

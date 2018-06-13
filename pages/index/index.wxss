@@ -1,0 +1,55 @@
+/**index.wxss**/
+.swiper{
+  height: 320rpx;
+  width: 100%;
+}
+.move_pic{
+  height: 100%;
+  width: 100%;
+}
+.clock_click{
+  color: lightskyblue;
+  font-size: 16px;
+  position: absolute;
+  right: 20px;
+  top: 10px; 
+}
+.step_box,.english_box{
+  width: 100%;
+  position: relative;
+}
+.bg_line,.bg_line1{
+  padding-left: 4px;
+  height: 30px;
+  background:#e0e0e0; 
+  line-height: 30px;
+  font-size: 12px;
+}
+.bg_line1{
+  background:lightgray;
+  height: 2px;
+}
+.step_num{
+  font-size: 26px;
+  padding: 20rpx
+}
+.english_word{
+  padding: 20rpx
+}
+.step_word,.english_num{
+  display: inline-block;
+  padding: 0 20rpx 20rpx;
+}
+.step_com,.english_click{
+  position: absolute;
+  right: 30rpx;
+  top: 90rpx;
+  line-height: 0rpx;
+  font-size: 12px;
+  color: gray;
+}
+.english_click{
+  color: lightskyblue;
+  font-size: 16px;
+  top: 80rpx;
+}

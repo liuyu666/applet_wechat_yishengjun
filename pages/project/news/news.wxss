@@ -1,0 +1,5 @@
+/* pages/project/news/news.wxss */
+image{
+  width: 100%;
+  /* height: 8000rpx; */
+}

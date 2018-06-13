@@ -1,0 +1,13 @@
+  <!-- 顶栏文字介绍 -->
+  <!-- <view class='big_title'>{{big_title}}</view> -->
+  <!-- <view class='more'>{{more}}</view> -->
+  <!-- 课程选项 -->
+  <view class='course_box'>
+    <block wx:for="{{course_con}}" wx:key = "key">
+    <view class='course_con_box' >
+    <!-- 此处有坑吧，data-name写在view里，偶然才能得到值，只好放在image里了，这个box有宽高-->
+      <image class="course_con_pic" src='{{item.url}}' bindtap='func' data-name='{{item.text}}'/>
+      <view class='course_con_text'>{{item.text}}</view>
+    </view>
+  </block>
+  </view>

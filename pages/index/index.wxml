@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<!-- 轮播图 -->
+ <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000" circular="true">
+  <block wx:for="{{picture}}" wx:key="property">
+    <swiper-item>
+      <image src="{{item.url}}" class='move_pic' bindtap='swiper' data-name='{{item.num}}'/>
+    </swiper-item>
+  </block>
+</swiper> 
+
+<view class='bg_line'>开始学习</view>
+
+<!-- 早起打卡 -->
+  <view class='english_box'>
+    <view class='english_word'>{{clock_in}}</view>
+    <view class='clock_click' bindtap='clockClick' disable='{{disabled}}'>{{clock_click}}</view>
+    <view class='bg_line1'></view>
+  </view>
+
+<!-- 实现统计步数，同步微信或者QQ步数 -->
+<view class='step_box'>
+  <view class='step_num'>{{step_num}}</view>
+  <view class='step_word'>{{step_word}}</view>
+  <view class='step_com'>{{step_com}}</view>
+</view>
+<!-- 今日背单词，刷题-->
+<block wx:for="{{learn}}" wx:key="key">
+  <view class='english_box'>
+    <view class='bg_line1'></view>
+    <view class='english_word'>{{item.english_word}}</view>
+    <view class='english_num'>{{item.english_num}}</view>
+    <view class='english_click' bindtap='englishClick' data-name="{{item.english_com}}">{{item.english_com}}</view>
+</view>
+</block>
+
+

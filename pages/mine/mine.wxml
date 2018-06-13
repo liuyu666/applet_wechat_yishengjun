@@ -1,0 +1,23 @@
+<!--pages/mine/mine.wxml-->
+<view class="box">
+  <image class="userinfo-avatar" src="{{src}}"></image><!-- 微信头像 -->
+  <text class="name">Fire</text><!--微信名-->
+  <view class='small_box'>
+    <view class='lv'>公益等级：{{lv}}</view>
+    <view class='num'>益米粒数量：{{num}}</view>
+  </view>
+</view>
+
+<!-- 详细选项 -->
+  <block wx:for="{{obj}}" wx:key="key">
+  <view class='block'></view>
+  <view class='big_box'>
+    <view class='more_box'>
+      <image src="{{item.url1}}" class='icon_pic' bindtap=''/>
+      <view class='border'>
+      <view class='word'>{{item.word}}</view>
+      <image src="{{item.url2}}" class='icon_pic_right' bindtap=''/>
+      </view>
+    </view>
+  </view>
+  </block>

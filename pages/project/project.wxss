@@ -1,0 +1,17 @@
+/* pages/project/project.wxss */
+.tab1,.tab2{
+  display: inline-block;
+  height: 80rpx;
+  width: 49.8%;
+  text-align: center;
+  line-height: 80rpx;
+}
+.tab1{
+  border-right:1rpx solid gray; 
+}
+.pro_image{
+  height: 280rpx;
+  width: 100%;
+  padding: 10rpx 10rpx 0 10rpx;
+  border-bottom: 1rpx solid lightgray;
+}

@@ -1,0 +1,74 @@
+/* pages/mine/mine.wxss */
+.box{
+  background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524415127249&di=0001553a89f46f308c217b8d36875612&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F72f082025aafa40ff500d3e6a064034f79f019c2.jpg');
+  height: 130px;
+}
+.name{
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  left: 60rpx;
+  top: -70rpx;
+}
+.userinfo-avatar {
+  display: inline-block;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  margin-left:160rpx; 
+}
+.small_box{
+  text-align: center
+}
+.lv,.num{
+  color: white;
+  height: 20px;
+  display: inline-block;
+}
+.lv{
+  padding-right: 20px;
+  border-right: 1px solid white;
+}
+.num{
+  padding-left: 20px;
+}
+.big_box{
+  width: 100%;
+}
+.block{
+  height: 20rpx;
+  width: 100%;
+}
+.more_box{
+  position: relative;
+  height: 80rpx;
+  /* background-color: gray; */
+}
+.icon_pic{
+  margin: 10rpx 20rpx 0 18rpx;
+  display: inline-block;
+  height: 58rpx;
+  width: 58rpx;
+  float: left;
+}
+.word{
+  position: absolute;
+  top:12rpx;
+  left: 100rpx;
+  display: inline-block;
+}
+.icon_pic_right{
+  height: 28rpx;
+  width: 28rpx;
+  position: absolute;
+  top:24rpx;
+  right: 30rpx;
+  display: inline-block;
+}
+.border{
+  height: 80rpx;
+  width: 80%;
+  float: left;
+  border-bottom: 1px solid gray;
+}

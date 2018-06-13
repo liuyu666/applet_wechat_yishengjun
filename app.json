@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/topic/topic",
+    "pages/mine/mine",
+    "pages/index/english/english",
+    "pages/index/englishN/englishN",
+    "pages/project/project",
+    "pages/function/function",
+    "pages/index/title/title",
+    "pages/index/title1/title1",
+    "pages/index/exercise/exercise",
+    "pages/index/englocal/englocal",
+    "pages/index/englocal1/englocal1",
+    "pages/function/func1/func1",
+    "pages/function/func2/func2",
+    "pages/project/news/news"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "color": "#8a8a8a",
+    "selectedColor": "#1d98c4",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/首页.png",
+        "selectedIconPath": "image/首页 (2).png"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "项目",
+        "iconPath": "image/项目.png",
+        "selectedIconPath": "image/项目 (2).png"
+      },
+      {
+        "pagePath": "pages/function/function",
+        "text": "功能",
+        "iconPath": "image/功能.png",
+        "selectedIconPath": "image/功能(2).png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/mine.png",
+        "selectedIconPath": "image/mine(2).png"
+      }
+    ]
+  }
+}

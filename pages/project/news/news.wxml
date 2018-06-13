@@ -1,0 +1,2 @@
+<!--pages/project/news/news.wxml-->
+<image src='{{src}}' mode="widthFix"/>

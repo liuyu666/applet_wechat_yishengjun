@@ -1,0 +1,35 @@
+.big_title,.more{
+  margin: 20rpx 16rpx;
+  display: inline-block;
+}
+.more{
+  float: right;
+  font-size: 12px;
+  line-height: 50rpx;
+  color: gray;
+  margin-left:4rpx; 
+}
+.course_box{
+  border-top: 1px lightgray solid;
+  padding: 20rpx 20rpx 0;
+}
+.course_con_box{
+  text-align: center;
+  display: inline-block;
+  margin: 0 28rpx;
+}
+.course_con_pic{
+  width: 280rpx;
+  height: 260rpx;
+  border-radius: 8rpx;
+}
+.course_con_text{
+  font-size: 14px;
+  padding-bottom: 20rpx;
+}
+.bg_bottom{
+  height: 20rpx;
+  background: #dee1e2;
+  position: relative;
+  bottom: 0;
+}

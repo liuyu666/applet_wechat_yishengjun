@@ -1,0 +1,30 @@
+/* pages/index/english/englishN/englishN.wxss */
+/* pages/index/english/english.wxss */
+.num1,.num2,.num3{
+  display: none;
+}
+label{
+  display:block;
+}
+.one{
+  background-color: green;
+}
+.zero{
+  background-color: red;
+}
+label{
+  line-height: 50px
+}
+.true{
+  color:green
+}
+.false{
+  color:red
+}
+.none{
+  display: none
+}
+.yes{
+  color: green;
+  display: inline-block
+}

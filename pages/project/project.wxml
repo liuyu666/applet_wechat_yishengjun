@@ -1,0 +1,18 @@
+
+<!-- 上方的tab选项 -->
+<view class='tab1' bindtap='mine' style="background-color: {{mine_color}};"><text>我的项目</text></view>
+<view class='tab2' bindtap='more' style="background-color: {{more_color}};"><text>更多项目</text></view>
+
+<!-- 我的项目 -->
+<view style="display:{{display_mine}};borderBottom={{border_mine}}">
+  <block wx:for='{{mine_pro_pic}}' wx:key='key'>
+    <image class='pro_image' src='{{item.pro_image}}'/>
+  </block>
+</view>
+
+<!-- 更多项目 -->
+<view style="display:{{display_more}};borderBottom={{border_more}}">
+  <block wx:for='{{more_pro_pic}}' wx:key='key'>
+    <image class='pro_image' src='{{item.pro_image}}' data-name='{{item.id}}' bindtap='image'/>
+  </block>
+</view>
