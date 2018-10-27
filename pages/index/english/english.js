@@ -1,27 +1,64 @@
-
+var app = getApp();
 Page({
   data: {//在onload之后执行
     color: 'green',
     yes: "none",
     num: "none",
-    disabled: false
+    disabled: false,
+    dataList: []
   },
   onLoad: function () {
     var that = this;
+    var arr = [];
+    var obj = {};
+    var choice = [];
+    var an = null;
+    var num = null;
     // var id=1;//题号变量，之后作为传递给服务器的数据
     wx.request({
-      url: 'http://192.168.137.31:8080/rememberWord/QueryAllWordServlet',  //这里''里面填写你的服务器API接口的路径  
-      data: {id: "0"},  //这里是可以填写服务器需要的参数 可以写变量id 
+      
+      url: 'https://39.107.240.56:8443/lbl/word/selectWord.do',  //这里''里面填写你的服务器API接口的路径  
+      data: { wechatid: "1" },  //这里是可以填写服务器需要的参数 可以写变量id 
       method: 'POST', // 声明GET请求
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       }, // 设置请求的 header，GET请求可以不填 
       success: function (res) {
-        // app.globalData.answer = res.data//.result;//提升全局变量
-        console.log("返回成功的数据:" + res.data) //返回的会是对象，可以用JSON转字符串打印出来方便查看数据 
+        app.globalData.answer = res.data;//提升全局变量
+        console.log("返回成功的数据:" + res.data); //返回的会是对象，可以用JSON转字符串打印出来方便查看数据
+        obj = res.data;
+
+        function toObj1(key1, val1, key2, val2) {
+          var data = {};
+          data[key1] = val1;
+          data[key2] = val2;
+          return data;
+        }
+
+        for (var Key in obj) {
+          an = toObj1("ind", Key, "val", obj[Key]);
+          // an = '{' + Key + ':' + obj[Key] + '}';
+          console.log(an);
+          num = arr.push(an);
+        }
+        console.log(arr);
+        console.log(arr[2]);
+        for (var i = 2; i < 6; i++) {
+          choice.push(arr[i]);
+        }
+        console.log(choice);
+        function shuffle(v) {
+          for (var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
+          return v;
+        }
+        shuffle(choice);
+        app.globalData.choice = choice;//提升全局变量
+        // console.log(choice[0][Object.keys(choice[0])]);
         that.setData({//获取数据成功后的数据绑定  
-          dataList: res.data
+          dataList: choice,
+          tit: res.data.word
         });
+        console.log(res.data + 'uuu');
         console.log("返回成功的数据:" + JSON.stringify(res.data)) //这样就可以看到后台的数据啦  
       },
       fail: function (fail) {
@@ -32,37 +69,74 @@ Page({
       }
     })
   },
+  sub: function (e) {
+    console.log(e);
+    console.log(e.currentTarget.dataset.val);
+    //判断对错
+    // console.log(e.detail.value + 'www');
+    var val = e.currentTarget.dataset.val;//提交获得value
+    console.log(val + "数据数据aaaa");
+    console.log(JSON.stringify(val) + "数据数据a");
+    var ans = getApp().globalData.answer.answer;
+    var choice = getApp().globalData.choice;
+    console.log(choice + '[[[[]]]');
+    console.log(JSON.stringify(choice) + "数据数据aaaa");
+    this.setData({//只能提交一次
+      disabled: true
+    })
+    if (val == ans) {//判断是否正确
+      this.setData({
+        yes: "yes",
+        you: val,
+        num: "true",
+        answer: ans
+      })
+    }
+    else {
+      this.setData({
+        yes: "yes",
+        you: val,
+        num: "false",
+        answer: ans
+      })
+    }
+  },
   reg: function (e) {
 
-        //判断对错
-        var val = e.detail.value;//提交获得value
-        var ans = getApp().globalData.answer[0].answer;
-        console.log(val[1]);
-        this.setData({//只能提交一次
-          disabled: true
-        })
-        if (val[1] == ans) {//判断是否正确
-          this.setData({
-            yes: "yes",
-            you: val[1],
-            num: "true",
-            answer: ans
-          })
-        }
-        else {
-          this.setData({
-            yes: "yes",
-            you: val[1],
-            num: "false",
-            answer: ans
-          })
-        }
-        // //判断对错，并且呈现出来
+    //判断对错
+    console.log(e.detail.value + 'www');
+    var val = e.detail.value;//提交获得value
+    console.log(val + "数据数据aaaa");
+    console.log(JSON.stringify(val) + "数据数据a");
+    var ans = getApp().globalData.answer.answer;
+    var choice = getApp().globalData.choice;
+    console.log(choice + '[[[[]]]');
+    console.log(JSON.stringify(choice) + "数据数据aaaa");
+    this.setData({//只能提交一次
+      disabled: true
+    })
+    if (val == ans) {//判断是否正确
+      this.setData({
+        yes: "yes",
+        you: val,
+        num: "true",
+        answer: ans
+      })
+    }
+    else {
+      this.setData({
+        yes: "yes",
+        you: val,
+        num: "false",
+        answer: ans
+      })
+    }
+    // //判断对错，并且呈现出来
 
-        // console.log("返回成功的数据:" + JSON.stringify(res.data)) //这样就可以看到后台的数据啦 
+    // console.log("返回成功的数据:" + JSON.stringify(res.data)) //这样就可以看到后台的数据啦 
   },
   next: function () {
-    var id = 1;
+    var id = 2;
     wx.setStorage({//本地缓存题号，方便下一个页面调用
       key: 'id',
       data: id,
@@ -76,3 +150,9 @@ Page({
   }
 
 })
+
+
+
+
+
+

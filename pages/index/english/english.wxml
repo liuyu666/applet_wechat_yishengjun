@@ -1,27 +1,49 @@
-<!--pages/index/english/english.wxml-->
-
+<!--pages/index/word/word.wxml-->
 <form bindsubmit="reg">
-<block wx:for="{{dataList}}" wx:key="key">
 
-  <view>{{item.word}}<radio-group name="{{item.id}}">
-    <label><radio value="A"/>A.{{item.a}}</label>
-    <label><radio value="B"/>B.{{item.b}}</label>
-    <label><radio value="C"/>C.{{item.c}}</label>
-    <label><radio value="D"/>D.{{item.d}}</label>
-  </radio-group></view>
+<view>
+    <view class="box">{{tit}}</view>
+    <!-- <radio-group name="ans"> -->
+      <!-- <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item"> -->
+          <!-- <label><radio value="{{dataList[0].val}}"/>{{dataList[0].val}}</label>
+          <label><radio value="{{dataList[1].val}}"/>{{dataList[1].val}}</label>
+          <label><radio value="{{dataList[2].val}}"/>{{dataList[2].val}}</label>
+          <label><radio value="{{dataList[3].val}}"/>{{dataList[3].val}}</label> -->
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[0].val}}">
+              <view>{{dataList[0].val}}</view>
+          </button>
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[1].val}}">
+              <view>{{dataList[1].val}}</view>
+          </button>
 
-</block>
-<view><button type="primary" form-type="submit" disabled='{{disabled}}'>确认答案</button></view>
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[2].val}}">
+              <view>{{dataList[2].val}}</view>
+          </button>
+
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' valdata-value="{{dataList[3].val}}">
+              <view>{{dataList[3].val}}</view>
+          </button>
+      <!-- </block> -->
+    <!-- </radio-group> -->
+  </view>
+
+<!-- <view><button type="primary" form-type="submit" disabled='{{disabled}}'>确认答案</button></view> -->
 
  </form>
  <!--题目列表 -->
 
 <view>
-  <block wx:for="{{dataList}}" wx:key="key">
+  <block >
     <view class='{{yes}}'>正确答案：{{answer}}</view>
     <view class='{{num}}'>你的答案：{{you}}</view>
   </block>
 </view><!--做统一是否正确-->
 
 <button class="{{next}}" bindtap='next' >下一题</button>
+
+
+
+
+
+
 

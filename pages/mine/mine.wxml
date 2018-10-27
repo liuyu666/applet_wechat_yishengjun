@@ -4,7 +4,7 @@
   <text class="name">Fire</text><!--微信名-->
   <view class='small_box'>
     <view class='lv'>公益等级：{{lv}}</view>
-    <view class='num'>益米粒数量：{{num}}</view>
+    <view class='num'>益米粒数量：{{credit}}</view>
   </view>
 </view>
 

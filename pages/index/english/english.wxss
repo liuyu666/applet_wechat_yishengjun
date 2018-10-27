@@ -27,3 +27,31 @@ label{
   color: green;
   display: inline-block
 }
+.btn1 {
+  width: 80%;
+  margin-top: 20rpx;
+  background-color: rgba(214, 228, 152, 0.801);
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.btn1 view{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  color: rgb(66, 64, 207);
+  font-size: 16px;
+}
+.btn1::after {
+  border-radius: 98rpx;
+  border: 0; 
+}
+view{
+  text-align: center;
+}
+.box{
+  margin-bottom: 14px;
+}
