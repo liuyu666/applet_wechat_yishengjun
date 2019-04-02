@@ -1,5 +1,4 @@
-<!--pages/index/word/word.wxml-->
-<form bindsubmit="reg">
+<!-- <form bindsubmit="reg"> -->
 
 <view>
     <view class="box">{{tit}}</view>
@@ -20,7 +19,7 @@
               <view>{{dataList[2].val}}</view>
           </button>
 
-          <button class='btn1' bindtap="sub" disabled='{{disabled}}' valdata-value="{{dataList[3].val}}">
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[3].val}}">
               <view>{{dataList[3].val}}</view>
           </button>
       <!-- </block> -->
@@ -29,10 +28,10 @@
 
 <!-- <view><button type="primary" form-type="submit" disabled='{{disabled}}'>确认答案</button></view> -->
 
- </form>
+ <!-- </form> -->
  <!--题目列表 -->
 
-<view>
+<view class="submit">
   <block >
     <view class='{{yes}}'>正确答案：{{answer}}</view>
     <view class='{{num}}'>你的答案：{{you}}</view>

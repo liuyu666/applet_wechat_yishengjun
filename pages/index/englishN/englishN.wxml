@@ -20,7 +20,7 @@
               <view>{{dataList[2].val}}</view>
           </button>
 
-          <button class='btn1' bindtap="sub" disabled='{{disabled}}' valdata-value="{{dataList[3].val}}">
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[3].val}}">
               <view>{{dataList[3].val}}</view>
           </button>
       <!-- </block> -->

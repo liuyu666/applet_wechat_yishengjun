@@ -17,18 +17,18 @@ Page({
     // var id=1;//题号变量，之后作为传递给服务器的数据
     wx.request({
       
-      url: 'https://39.107.240.56:8443/lbl/word/selectWord.do',  //这里''里面填写你的服务器API接口的路径  
-      data: { wechatid: "1" },  //这里是可以填写服务器需要的参数 可以写变量id 
+        url: 'https://www.liuyuweb.cn/lbl/word/selectWord.do',  //这里''里面填写你的服务器API接口的路径  
+      data: { id: "1" },  //这里是可以填写服务器需要的参数 可以写变量id 
       method: 'POST', // 声明GET请求
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       }, // 设置请求的 header，GET请求可以不填 
       success: function (res) {
-        app.globalData.answer = res.data;//提升全局变量
+        app.globalData.answer = res.data;//提升全局变量，将正确答案全局。
         console.log("返回成功的数据:" + res.data); //返回的会是对象，可以用JSON转字符串打印出来方便查看数据
         obj = res.data;
 
-        function toObj1(key1, val1, key2, val2) {
+        function toObj1(key1, val1, key2, val2) {//取出第二三个元素，存入对象
           var data = {};
           data[key1] = val1;
           data[key2] = val2;
@@ -42,16 +42,17 @@ Page({
           num = arr.push(an);
         }
         console.log(arr);
-        console.log(arr[2]);
-        for (var i = 2; i < 6; i++) {
+        console.log(arr[2]);//answer
+        for (var i = 2; i < 6; i++) {//选项
           choice.push(arr[i]);
         }
         console.log(choice);
-        function shuffle(v) {
+        function shuffle(v) {//选项乱序
           for (var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x);
           return v;
         }
         shuffle(choice);
+        console.log(shuffle(choice));
         app.globalData.choice = choice;//提升全局变量
         // console.log(choice[0][Object.keys(choice[0])]);
         that.setData({//获取数据成功后的数据绑定  

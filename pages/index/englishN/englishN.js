@@ -13,6 +13,7 @@ Page({
     console.log(option.type);
     var id = option.type;
     console.log(id);//接受上个页面传递回来的参数
+    id++;
     var that = this;
     var arr = [];
     var obj = {};
@@ -21,10 +22,10 @@ Page({
     var num = null;
     // var id = 1;//题号变量，之后作为传递给服务器的数据
     wx.request({
-      url: 'https://39.107.240.56:8443/lbl/word/selectWord.do',  //这里''里面填写你的服务器API接口的路径  
-      data: { wechatid: 1 },  //这里是可以填写服务器需要的参数 可以写变量id 
-      method: 'POST', // 声明GET请求  
-      header: {
+        url: 'https://www.liuyuweb.cn/lbl/word/selectWord.do',  //这里''里面填写你的服务器API接口的路径  
+        data: { id: id },  //这里是可以填写服务器需要的参数 可以写变量id 
+        method: 'POST', // 声明GET请求  
+        header: {
         "Content-Type": "application/x-www-form-urlencoded"
       }, // 设置请求的 header，GET请求可以不填 
       success: function (res) {
