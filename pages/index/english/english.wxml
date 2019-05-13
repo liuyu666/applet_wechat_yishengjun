@@ -1,17 +1,18 @@
-<!-- <form bindsubmit="reg"> -->
+<!--pages/index/word/word.wxml-->
+<form bindsubmit="reg">
 
 <view>
     <view class="box">{{tit}}</view>
     <!-- <radio-group name="ans"> -->
-      <!-- <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item"> -->
+      <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item">
           <!-- <label><radio value="{{dataList[0].val}}"/>{{dataList[0].val}}</label>
           <label><radio value="{{dataList[1].val}}"/>{{dataList[1].val}}</label>
           <label><radio value="{{dataList[2].val}}"/>{{dataList[2].val}}</label>
           <label><radio value="{{dataList[3].val}}"/>{{dataList[3].val}}</label> -->
-          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[0].val}}">
-              <view>{{dataList[0].val}}</view>
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{item.answer}}">
+              <view>{{item.answer}}</view>
           </button>
-          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[1].val}}">
+          <!-- <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[1].val}}">
               <view>{{dataList[1].val}}</view>
           </button>
 
@@ -19,19 +20,19 @@
               <view>{{dataList[2].val}}</view>
           </button>
 
-          <button class='btn1' bindtap="sub" disabled='{{disabled}}' data-val="{{dataList[3].val}}">
+          <button class='btn1' bindtap="sub" disabled='{{disabled}}' valdata-value="{{dataList[3].val}}">
               <view>{{dataList[3].val}}</view>
-          </button>
-      <!-- </block> -->
+          </button> -->
+      </block>
     <!-- </radio-group> -->
   </view>
 
 <!-- <view><button type="primary" form-type="submit" disabled='{{disabled}}'>确认答案</button></view> -->
 
- <!-- </form> -->
+ </form>
  <!--题目列表 -->
 
-<view class="submit">
+<view>
   <block >
     <view class='{{yes}}'>正确答案：{{answer}}</view>
     <view class='{{num}}'>你的答案：{{you}}</view>

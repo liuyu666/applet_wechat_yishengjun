@@ -1,0 +1,11 @@
+<!--pages/project/detail/detail.wxml-->
+<block wx:for="{{dataList}}" wx:key="pid">
+  <view class='box'>
+    <view class="title">{{item.title}}</view>
+    <view class='veginTime'>发布时间：{{item.time}}</view>
+    <image src='{{item.img}}'/>
+    <view class='content'>{{item.content}}</view>
+    <view class='time'>时间：{{item.time}}</view>
+    <view class='place'>地点：{{item.place}}</view>
+  </view>
+</block>

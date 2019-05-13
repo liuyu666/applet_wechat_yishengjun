@@ -49,9 +49,6 @@ label{
   border-radius: 98rpx;
   border: 0; 
 }
-.submit{
-    margin-top: 20px;
-}
 view{
   text-align: center;
 }

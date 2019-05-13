@@ -1,0 +1,7 @@
+/* pages/project/detail/detail.wxss */
+.box{
+  padding: 0 8px;
+}
+view{
+  margin-bottom: 10px;
+}

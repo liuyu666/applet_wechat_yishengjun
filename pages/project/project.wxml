@@ -5,8 +5,11 @@
 
 <!-- 我的项目 -->
 <view style="display:{{display_mine}};borderBottom={{border_mine}}">
-  <block wx:for='{{mine_pro_pic}}' wx:key='key'>
-    <image class='pro_image' src='{{item.pro_image}}'/>
+  <block wx:for='{{dataList}}' wx:key='key'>
+    <view class="box" bindtap='detail' data-pid='{{item.pid}}'>
+      <view class="title">{{item.title}}</view>
+      <image src='{{item.img}}' class="img"/>
+    </view>
   </block>
 </view>
 

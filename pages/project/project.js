@@ -1,38 +1,51 @@
 // pages/project/project.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     display_mine:'block',
     display_more:'none',
     border_mine:'4rpx solid lightgreen',
     border_more:'4rpx solid white',
     mine_color:'white',
+    dataList:null,
     more_color:'orange',
-    mine_pro_pic:[{
-      pro_image:'http://m.qpic.cn/psb?/V10g3NZ433DhLq/cOwpsjAgWuKSHQWxEXDdKpK9NWxJVSO16DKg207MqlE!/b/dEABAAAAAAAA&bo=BQNTAQAAAAADB3Y!&rf=viewer_4'
+    mine_pro_pic:[],
+    more_pro_pic: [{
+      pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/cOwpsjAgWuKSHQWxEXDdKpK9NWxJVSO16DKg207MqlE!/b/dEABAAAAAAAA&bo=BQNTAQAAAAADB3Y!&rf=viewer_4'
     }, {
         pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/dSHF0coLg48HIEGCHYIVkXOTFhUkUWCMyY4z6FTUYwE!/b/dDIBAAAAAAAA&bo=BQN4AQAAAAADF00!&rf=viewer_4'
       }, {
         pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/TMgpspSJsZ3afs5spbCoqRAVsj0PeqNT2qwcswc09jA!/b/dDIBAAAAAAAA&bo=BQN2AQAAAAADF0M!&rf=viewer_4'
-      }],
-    more_pro_pic: [{
-      pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/.01JNqUGMlLe5gMdxnPG41hll8Vezaa0nUA1VrcFx5E!/b/dEEBAAAAAAAA&bo=BgNNAQAAAAADB2s!&rf=viewer_4',id:'num1'}, {
-        pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/82hH*WOvRsUxIyctS5NJ.XeGGcNZKbI3MVbj6rk6rPg!/b/dDEBAAAAAAAA&bo=BgN1AQAAAAADF0M!&rf=viewer_4', id: ''}, {
-        pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/9viuWmgNCUrD1CEhfKKZgaezoG9VmZWCXRFZw7fDefE!/b/dGcBAAAAAAAA&bo=BgMPAQAAAAADFzk!&rf=viewer_4', id: ''}, {
-        pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/Mt1pMJur90pNnPGKZeCWhHz0I.RZqtZIoCqqPx.JZas!/b/dIMAAAAAAAAA&bo=BgN4AQAAAAADF04!&rf=viewer_4', id: ''}, {
-        pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/dSHF0coLg48HIEGCHYIVkXOTFhUkUWCMyY4z6FTUYwE!/b/dDIBAAAAAAAA&bo=BQN4AQAAAAADF00!&rf=viewer_4', id: ''}, {
-        pro_image: 'http://m.qpic.cn/psb?/V10g3NZ433DhLq/TMgpspSJsZ3afs5spbCoqRAVsj0PeqNT2qwcswc09jA!/b/dDIBAAAAAAAA&bo=BQN2AQAAAAADF0M!&rf=viewer_4', id: ''}]
-  },
+      }]
   
-
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    var that = this;
+    // var id=1;//题号变量，之后作为传递给服务器的数据
+    wx.request({
+      url: 'https://liuyuweb.cn/lbl/project/queryTitle.do',  //这里''里面填写你的服务器API接口的路径  
+      data: { oppenId: "o-QcJ41E6oAJtQ8iz0RhWdRzCvos" },  //这里是可以填写服务器需要的参数 可以写变量id 
+      //https://liuyuweb.cn/lbl_pkt/project/queryTitle.do?oppenId=o-QcJ41E6oAJtQ8iz0RhWdRzCvos
+      method: 'POST', // 声明GET请求
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      }, // 设置请求的 header，GET请求可以不填 
+      success: function (res) {
+        console.log(JSON.stringify(res.data))//返回的会是对象，可以用JSON转字符串打印出来方便查看数据 
+        that.setData({//获取数据成功后的数据绑定  
+          dataList: res.data
+        });
+        console.log("返回成功的数据:" + JSON.stringify(res.data)) //这样就可以看到后台的数据啦  
+      },
+      fail: function (fail) {
+        // 这里是失败的回调，取值方法同上,把res改一下就行了  
+      },
+      complete: function (arr) {
+        // 这里是请求以后返回的所以信息，请求方法同上，把res改一下就行了  
+      }
+    })
   },
   mine:function(){
     this.setData({
@@ -60,6 +73,12 @@ Page({
         url: 'news/news'
       })
     }
+  },
+  detail(e){
+    console.log(e.target.dataset.pid);
+    wx.navigateTo({
+      url: 'detail/detail?type=' + 1
+    })
   },
   /**
    * 生命周期函数--监听页面显示
