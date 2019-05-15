@@ -21,6 +21,27 @@ Page({
     disabled:false
   },
   //事件处理函数
+  onLoad:function(){
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://liuyuweb.cn/lbl/user/addUser.do',
+            data: {
+              code: res.code
+            },
+            success: function (res) {
+              console.log(res.data);
+              app.globalData.oppenId = res.data.openid;
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
+  },
   swiper:function(e){
     var which = e.target.dataset.name;
     console.log(which);
@@ -46,9 +67,11 @@ Page({
   },
   clockClick: function () {
     var that = this;
+    var openid = getApp().globalData.oppenId;
+    console.log(openid);
     wx.request({
-      url: 'https://39.107.240.56:8443/lbl/sign/insertSign.do',  //这里''里面填写你的服务器API接口的路径  
-      data: { id: "1" },  //这里是可以填写服务器需要的参数 可以写变量id 
+      url: 'https://liuyuweb.cn/lbl/word/queryWord.do',  //这里''里面填写你的服务器API接口的路径  
+      data: { oppenId: openid },  //这里是可以填写服务器需要的参数 可以写变量id 
       method: 'POST', // 声明GET请求
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -66,7 +89,7 @@ Page({
             clock_click: '点击打卡',
             disabled: true
           })
-        } else if (res.data == -1){
+        } else if (res.data = -1){
           wx.showToast({
             title: '请勿重复打卡',
             icon: 'success',

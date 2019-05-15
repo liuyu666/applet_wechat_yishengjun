@@ -9,9 +9,11 @@ Page({
   onLoad: function () {
     var that = this;
     // var id=1;//题号变量，之后作为传递给服务器的数据
+    var openid = getApp().globalData.oppenId;
+    console.log(openid);
     wx.request({
       url: 'https://liuyuweb.cn/lbl/question/queryQuestionPro.do',  //这里''里面填写你的服务器API接口的路径  
-      data: { oppenId:"o-QcJ41E6oAJtQ8iz0RhWdRzCvos" },  //这里是可以填写服务器需要的参数 可以写变量id 
+      data: { oppenId: openid },  //这里是可以填写服务器需要的参数 可以写变量id 
       //https://liuyuweb.cn/lbl/question/queryQuestionPro.do?oppenId=o-QcJ41E6oAJtQ8iz0RhWdRzCvos
       method: 'POST', // 声明GET请求
       header: {
@@ -21,7 +23,7 @@ Page({
         app.globalData.answer = res.data;//提升全局变量
         console.log("返回成功的数据:" + JSON.stringify(res.data))//返回的会是对象，可以用JSON转字符串打印出来方便查看数据 
         that.setData({//获取数据成功后的数据绑定  
-          dataList: res.data
+          dataList: [res.data[0]]
         });
         console.log("返回成功的数据:" + JSON.stringify(res.data)) //这样就可以看到后台的数据啦  
       },
@@ -66,17 +68,10 @@ Page({
     // console.log("返回成功的数据:" + JSON.stringify(res.data)) //这样就可以看到后台的数据啦 
   },
   next: function () {
-    var id = 2;
-    wx.setStorage({//本地缓存题号，方便下一个页面调用
-      key: 'id',
-      data: id,
-      success: function (res) {
-        console.log(id);
-        wx.navigateTo({
-          url: '../title1/title1?type=' + id//跳转到下一个页面，并且将id题号传过去
+    
+        wx.redirectTo({
+          url: '../title/title',
         })
-      }
-    })
   }
 
 })

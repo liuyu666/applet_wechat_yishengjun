@@ -38,6 +38,7 @@ App({
     userInfo: null,
     answer:null,
     index:null,
-    choice:null
+    choice:null,
+    oppenId:''
   }
 })

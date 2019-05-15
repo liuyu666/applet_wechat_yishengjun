@@ -15,18 +15,21 @@ Page({
     var choice = [];
     var an = null;
     var num = null;
+    var openid = getApp().globalData.oppenId;
+    console.log(openid);
     // var id=1;//题号变量，之后作为传递给服务器的数据
     wx.request({
-      
-        url: 'https://liuyuweb.cn/lbl/word/queryWord.do',  //这里''里面填写你的服务器API接口的路径  
-      data: {
-        oppenId: "o-QcJ41E6oAJtQ8iz0RhWdRzCvos" },  //这里是可以填写服务器需要的参数 可以写变量id 
+      url: 'https://liuyuweb.cn/lbl/word/queryWord.do',  //这里''里面填写你的服务器API接口的路径  
+      data: { oppenId: openid},  //这里是可以填写服务器需要的参数 可以写变量id 
+      //https://liuyuweb.cn/lbl/word/queryWord.do?oppenId=o-QcJ41E6oAJtQ8iz0RhWdRzCvos
       method: 'POST', // 声明GET请求
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       }, // 设置请求的 header，GET请求可以不填 
       success: function (res) {
-        res.data.forEach(function (item, index) {
+        var arr = res.data;
+        console.log(arr)
+        arr.forEach(function (item, index) {
           if(item.res=='true'){//正确，将第几个存入全局变量
             app.globalData.answer = item.answer;
           }

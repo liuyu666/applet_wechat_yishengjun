@@ -4,7 +4,7 @@
 <view>
     <view class="box">{{tit}}</view>
     <!-- <radio-group name="ans"> -->
-      <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item">
+      <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
           <!-- <label><radio value="{{dataList[0].val}}"/>{{dataList[0].val}}</label>
           <label><radio value="{{dataList[1].val}}"/>{{dataList[1].val}}</label>
           <label><radio value="{{dataList[2].val}}"/>{{dataList[2].val}}</label>

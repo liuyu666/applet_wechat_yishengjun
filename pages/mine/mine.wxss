@@ -1,4 +1,27 @@
 /* pages/mine/mine.wxss */
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+
 .box{
   background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524415127249&di=0001553a89f46f308c217b8d36875612&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F72f082025aafa40ff500d3e6a064034f79f019c2.jpg');
   height: 130px;

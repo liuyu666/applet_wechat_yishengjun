@@ -24,9 +24,11 @@ Page({
   onLoad: function () {
     var that = this;
     // var id=1;//题号变量，之后作为传递给服务器的数据
+    var openid = getApp().globalData.oppenId;
+    console.log(openid);
     wx.request({
       url: 'https://liuyuweb.cn/lbl/project/queryTitle.do',  //这里''里面填写你的服务器API接口的路径  
-      data: { oppenId: "o-QcJ41E6oAJtQ8iz0RhWdRzCvos" },  //这里是可以填写服务器需要的参数 可以写变量id 
+      data: { oppenId: openid },  //这里是可以填写服务器需要的参数 可以写变量id 
       //https://liuyuweb.cn/lbl_pkt/project/queryTitle.do?oppenId=o-QcJ41E6oAJtQ8iz0RhWdRzCvos
       method: 'POST', // 声明GET请求
       header: {
