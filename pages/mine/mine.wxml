@@ -7,8 +7,11 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
-    <view class='lv'>公益等级：{{lv}}</view>
-    <view class='num'>益米粒数量：{{credit}}</view>
+    <view class='flex_dengji'>
+      <view class='lv'>公益等级：{{lv}}</view>
+      <view class='num'>益米粒数量：{{credit}}</view>
+    </view>
+    
 </view>
 
 <!-- 详细选项 -->

@@ -7,5 +7,6 @@
     <view class='content'>{{item.content}}</view>
     <view class='time'>时间：{{item.time}}</view>
     <view class='place'>地点：{{item.place}}</view>
+    <button class='join'>{{join}}</button>
   </view>
 </block>

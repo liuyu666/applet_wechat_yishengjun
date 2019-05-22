@@ -46,25 +46,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://liuyuweb.cn/lbl/user/addUser.do',
-            data: {
-              code: res.code
-            },
-            success: function (res) {
-              console.log(res.data);
-              app.globalData.oppenId = res.data.openid;
-            }
-          })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
+    if (!app.globalData.oppenId) {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: 'https://liuyuweb.cn/lbl/user/addUser.do',
+              data: {
+                code: res.code
+              },
+              success: function (res) {
+                console.log(res.data);
+                app.globalData.oppenId = res.data.openid;
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
         }
-      }
-    });
+      });
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

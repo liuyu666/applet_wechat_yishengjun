@@ -39,7 +39,7 @@
   </block>
 </view><!--做统一是否正确-->
 
-<button class="{{next}}" bindtap='next' >下一题</button>
+<button class="next" bindtap='next' >{{nextEng}}</button>
 
 
 

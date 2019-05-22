@@ -6,7 +6,8 @@ Page({
     yes: "none",
     num: "none",
     disabled: false,
-    dataList: []
+    dataList: [],
+    nextEng:''
   },
   onLoad: function () {
     var that = this;
@@ -38,7 +39,8 @@ Page({
         // obj = res.data;
         that.setData({//获取数据成功后的数据绑定  
           dataList: res.data,
-          tit: res.data[0].word
+          tit: res.data[0].word,
+          nextEng:"下一题"
         })
       },
       fail: function (fail) {

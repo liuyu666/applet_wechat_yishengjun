@@ -11,7 +11,10 @@
     "pages/function/func1/func1",
     "pages/function/func2/func2",
     "pages/project/news/news",
-    "pages/project/detail/detail"
+    "pages/project/detail/detail",
+    "pages/function/shequ/shequ",
+    "pages/index/engTit/engTit",
+    "pages/index/titTit/titTit"
   ],
   "window": {
     "backgroundTextStyle": "light",

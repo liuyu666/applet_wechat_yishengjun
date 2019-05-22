@@ -39,6 +39,7 @@ App({
     answer:null,
     index:null,
     choice:null,
-    oppenId:''
+    oppenId:'',
+    type:''
   }
 })

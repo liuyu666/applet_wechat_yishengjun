@@ -1,0 +1,6 @@
+<!--pages/index/engTit/engTit.wxml-->
+<view class="flexbox">
+  <block wx:for="{{list}}" wx:key = "key">
+    <view class="box" bindtap='choice' data-eng='{{index}}'>{{item}}</view>
+  </block>
+</view>

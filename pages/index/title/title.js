@@ -6,15 +6,17 @@ Page({
     num: "none",
     disabled: false
   },
-  onLoad: function () {
+  onLoad: function (option) {
+    var type = app.globalData.type;
+    console.log(type);
     var that = this;
     // var id=1;//题号变量，之后作为传递给服务器的数据
     var openid = getApp().globalData.oppenId;
     console.log(openid);
     wx.request({
       url: 'https://liuyuweb.cn/lbl/question/queryQuestionPro.do',  //这里''里面填写你的服务器API接口的路径  
-      data: { oppenId: openid },  //这里是可以填写服务器需要的参数 可以写变量id 
-      //https://liuyuweb.cn/lbl/question/queryQuestionPro.do?oppenId=o-QcJ41E6oAJtQ8iz0RhWdRzCvos
+      data: { oppenId: openid, tableName: type},  //这里是可以填写服务器需要的参数 可以写变量id 
+      //https://liuyuweb.cn/lbl/question/queryQuestionPro.do?oppenId=o-QcJ41E6oAJtQ8iz0RhWdRzCvos&tableName=sixiu
       method: 'POST', // 声明GET请求
       header: {
         "Content-Type": "application/x-www-form-urlencoded"

@@ -12,3 +12,13 @@ view{
 .img{
   width: 100%
 }
+.content{
+  font-size: 14px;
+  line-height: 20px;
+}
+.join{
+  width: 80%;
+  margin-top: 20rpx;
+  background-color: rgb(13, 224, 77);
+  color: white;
+}

@@ -6,6 +6,7 @@ Page({
    */
   data: {
     dataList:null,
+    join:"立即参加"
   },
 
   /**

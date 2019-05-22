@@ -22,25 +22,27 @@ Page({
   },
   //事件处理函数
   onLoad:function(){
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          //发起网络请求
-          wx.request({
-            url: 'https://liuyuweb.cn/lbl/user/addUser.do',
-            data: {
-              code: res.code
-            },
-            success: function (res) {
-              console.log(res.data);
-              app.globalData.oppenId = res.data.openid;
-            }
-          })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
+    if (!app.globalData.oppenId){
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: 'https://liuyuweb.cn/lbl/user/addUser.do',
+              data: {
+                code: res.code
+              },
+              success: function (res) {
+                console.log(res.data);
+                app.globalData.oppenId = res.data.openid;
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
         }
-      }
-    });
+      });
+    }
   },
   swiper:function(e){
     var which = e.target.dataset.name;
@@ -120,13 +122,13 @@ Page({
       var content = which;
       console.log(content);
       wx.navigateTo({
-        url: 'title/title?type=' + content
+        url: 'titTit/titTit'
       })
     } else if (which == "去背单词") {
       var content = which;
       console.log(content);
       wx.navigateTo({
-        url: 'english/english'
+        url: 'engTit/engTit'
       })
     };
     
